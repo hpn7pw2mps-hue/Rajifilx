@@ -1,9 +1,4 @@
 (function () {
-  const user = Auth.requireLogin();
-  if (!user) return;
-
-  document.getElementById('roleChip').textContent = Auth.roleLabel(user.role);
-
   const root = document.getElementById('root');
   const params = new URLSearchParams(window.location.search);
   const type = params.get('type') === 'tv' ? 'tv' : 'movie';
@@ -37,7 +32,7 @@
           ${poster ? `<img src="${poster}" alt="${title}">` : ''}
         </div>
         <div class="details-main">
-          <a class="back-link" href="home.html">← رجوع للرئيسية</a>
+          <a class="back-link" href="index.html">← رجوع للرئيسية</a>
           <h1>${title}</h1>
           <div class="details-badges">
             ${date ? `<span class="badge">${date.slice(0, 4)}</span>` : ''}
@@ -57,7 +52,7 @@
 
   function handleError(e) {
     const msg = e.message === 'NO_API_KEY'
-      ? 'ما تم إعداد مفتاح TMDB API بعد. راجع ملف assets/js/config.js.'
+      ? 'ما تم إعداد مفتاح TMDB API بعد. راجع ملف config.js.'
       : 'صار خطأ بجلب تفاصيل هذا العنوان.';
     root.innerHTML = `<div class="container"><div class="empty-state" style="margin-top:40px;">${msg}</div></div>`;
   }
