@@ -3,26 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>RajFlix — الرئيسية</title>
-<link rel="stylesheet" href="assets/css/style.css">
+<title>RajFlix</title>
+<link rel="stylesheet" href="style.css">
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
 <header class="topbar">
   <div class="brand">Raj<span class="dot">Flix</span></div>
-  <div class="topbar-actions">
-    <span class="role-chip" id="roleChip"></span>
-    <button class="icon-btn" id="logoutBtn" title="تسجيل خروج">⏻</button>
-  </div>
 </header>
 
 <div class="reel-edge"></div>
 
 <div class="container">
   <section class="hero">
-    <div class="hero-eyebrow">أهلاً بيك مجدداً</div>
-    <h1 id="welcomeName">—</h1>
+    <div class="hero-eyebrow">أهلاً بيك</div>
+    <h1>شاهد أحدث الأفلام والمسلسلات</h1>
     <p>تصفح أحدث الأفلام والمسلسلات، وشوف اللي يعجبك براحتك.</p>
 
     <div class="search-row">
@@ -39,7 +35,7 @@
 
   <div id="setupNote" class="setup-note" style="display:none;">
     ما تم إعداد مفتاح TMDB API بعد. افتح ملف
-    <code>assets/js/config.js</code> وحط مفتاحك بدل
+    <code>config.js</code> وحط مفتاحك بدل
     <code>YOUR_TMDB_API_KEY</code>. اطلع على README لمعرفة كيفية الحصول على مفتاح مجاني.
   </div>
 
@@ -48,10 +44,9 @@
 
 <footer>RajFlix — تطبيق مصغّر خاص، تأسس بواسطة Rajisma.</footer>
 
-<script src="assets/js/config.js"></script>
-<script src="assets/js/telegram.js"></script>
-<script src="assets/js/auth.js"></script>
-<script src="assets/js/api.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="config.js"></script>
+<script src="telegram.js"></script>
+<script src="api.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
