@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RajFlix — الدخول</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+<div class="gate">
+  <div class="gate-mark">تذكرة الدخول</div>
+  <h1 class="gate-title">Raj<span class="dot">Flix</span></h1>
+  <p class="gate-sub">اكتب اسمك حتى نجهز لك تذكرة دخول خاصة، وتشاهد الأفلام والمسلسلات على راحتك.</p>
+
+  <form class="ticket" id="gateForm">
+    <div class="ticket-label">إصدار التذكرة</div>
+
+    <div class="field">
+      <label for="nameInput">اسمك</label>
+      <input id="nameInput" type="text" placeholder="اكتب اسمك هنا..." autocomplete="off" required>
+    </div>
+
+    <button type="submit" class="btn-primary">ادخل RajFlix</button>
+
+    <div class="ticket-perf">
+      <span>ADMIT ONE</span>
+      <span id="dateStamp"></span>
+    </div>
+  </form>
+
+  <p class="gate-hint" id="errHint" style="display:none;color:#C1443C;">اكتب اسمك أول حتى تدخل.</p>
+</div>
+
+<script src="assets/js/config.js"></script>
+<script src="assets/js/telegram.js"></script>
+<script src="assets/js/auth.js"></script>
+<script>
+  document.getElementById('dateStamp').textContent =
+    new Date().toLocaleDateString('ar-EG', { year: 'numeric', month: 'short', day: 'numeric' });
+
+  // إذا مسجل دخول أصلاً، وديه على الصفحة الرئيسية مباشرة
+  if (Auth.current()) {
+    window.location.href = 'home.html';
+  }
+
+  document.getElementById('gateForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const name = document.getElementById('nameInput').value;
+    const user = Auth.login(name);
+    if (!user) {
+      document.getElementById('errHint').style.display = 'block';
+      return;
+    }
+    window.location.href = 'home.html';
+  });
+</script>
+</body>
+</html>
