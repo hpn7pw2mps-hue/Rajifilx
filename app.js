@@ -1,20 +1,8 @@
 (function () {
-  const user = Auth.requireLogin();
-  if (!user) return;
-
-  document.getElementById('welcomeName').textContent = user.name;
-  document.getElementById('roleChip').textContent = Auth.roleLabel(user.role);
-
-  document.getElementById('logoutBtn').addEventListener('click', () => {
-    Auth.logout();
-    window.location.href = 'index.html';
-  });
-
   const content = document.getElementById('content');
   const setupNote = document.getElementById('setupNote');
   const tabs = document.querySelectorAll('.tab');
   const searchTab = document.getElementById('searchTab');
-  let activeTab = 'movies';
 
   function skeletonGrid(n = 10) {
     return `<div class="grid">${Array.from({ length: n }).map(() =>
@@ -91,7 +79,6 @@
   }
 
   function setActiveTab(name) {
-    activeTab = name;
     tabs.forEach(t => t.classList.toggle('active', t.dataset.tab === name));
   }
 
